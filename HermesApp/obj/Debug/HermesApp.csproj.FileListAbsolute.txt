@@ -14,3 +14,15 @@ C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\HermesApp.csproj.Gene
 C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\HermesApp.csproj.CoreCompileInputs.cache
 C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\HermesApp.exe
 C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\HermesApp.pdb
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\Pages\AuthPage.g.cs
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\App.baml
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\Pages\AuthPage.baml
+C:\Users\202002\source\repos\HermesApp\HermesApp\bin\Debug\EntityFramework.dll
+C:\Users\202002\source\repos\HermesApp\HermesApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\202002\source\repos\HermesApp\HermesApp\bin\Debug\EntityFramework.xml
+C:\Users\202002\source\repos\HermesApp\HermesApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\202002\source\repos\HermesApp\HermesApp\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\HermesApp_Content.g.cs
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\HermesApp.csproj.CopyComplete
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\Pages\RegistrationPage.g.cs
+C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\Pages\RegistrationPage.baml

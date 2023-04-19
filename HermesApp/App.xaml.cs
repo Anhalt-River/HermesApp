@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using HermesApp.AdoApp;
 
 namespace HermesApp
 {
@@ -13,5 +14,6 @@ namespace HermesApp
     /// </summary>
     public partial class App : Application
     {
+        public static HermesAppEntities Connection = new HermesAppEntities();
     }
 }

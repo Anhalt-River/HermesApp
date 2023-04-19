@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdoApp\AdoModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdoModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\AdoModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\AdoModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdoModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\Client.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\ClientTag.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\sp_helpdiagrams_Result.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\sysdiagrams.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\Tag.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\User.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdoApp\Visit.cs">
+      <DependentUpon>AdoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ClientListPage.xaml.cs">
+      <DependentUpon>ClientListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -68,6 +123,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ClientListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -93,8 +156,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="AdoApp\AdoModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdoModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="AdoApp\AdoModel.edmx.diagram">
+      <DependentUpon>AdoModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
@@ -106,6 +177,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Materials\VHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdoApp\AdoModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AdoModel.Context.cs</LastGenOutput>
+      <DependentUpon>AdoModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="AdoApp\AdoModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdoModel.edmx</DependentUpon>
+      <LastGenOutput>AdoModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Materials\back_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

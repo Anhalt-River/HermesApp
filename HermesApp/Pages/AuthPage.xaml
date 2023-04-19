@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="110"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
@@ -29,24 +29,32 @@
         
         <Image Source="/Materials/VHS.png" Grid.Column="0" Grid.Row="0"/>
 
-        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center" Orientation="Vertical">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Логин: "/>
-                <TextBox x:Name="LoginBox" MinWidth="100" MaxWidth="170"/>
+                <TextBox x:Name="LoginBox" MinWidth="150" MaxWidth="250"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Пароль: "/>
-                <PasswordBox x:Name="PasswordBox" MinWidth="100" MaxWidth="170"/>
+                <PasswordBox x:Name="PasswordBox" MinWidth="150" MaxWidth="250"/>
             </StackPanel>
 
-            <Button x:Name="AuthBut" Content="Авторизоваться"/>
+            <Button x:Name="AuthBut" Content="Авторизоваться" Click="AuthBut_Click"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Запомнить меня: "/>
-                <CheckBox Name="RememberCheckBox"/>
+                <CheckBox Name="RememberCheckBox" Checked="RememberCheckBox_Checked" Unchecked="RememberCheckBox_Unchecked">
+                    <TextBlock Style="{StaticResource AuthPage_CheckBox_TextStyle}" Text="Запомнить меня"/>
+                </CheckBox>
             </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Style="{StaticResource AuthPage_ButtonStyle}" x:Name="CreateUserBut" Click="CreateUserBut_Click">
+                <TextBlock Style="{StaticResource AuthPage_NavigationButton_TextStyle}" Text="Создать аккаунт заказчику"/>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

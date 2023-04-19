@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,92 @@ namespace HermesApp.Pages
     /// </summary>
     public partial class AuthPage : Page
     {
+        private bool isRememberMe = false;
+        private int countAttempts = 0;
         public AuthPage()
         {
             InitializeComponent();
+        }
+
+        private void AuthBut_Click(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.Remember_BlockTime == new DateTime())
+            {
+                AuthCourse();
+            }
+            else
+            {
+                if (Properties.Settings.Default.Remember_BlockTime < DateTime.Now)
+                {
+                    Properties.Settings.Default.Remember_BlockTime = new DateTime();
+                    AuthCourse();
+                }
+                else
+                {
+                    var time_remain = Properties.Settings.Default.Remember_BlockTime - DateTime.Now;
+                    Properties.Settings.Default.Save();
+
+                    MessageBox.Show($"Авторизация невозможна ввиду блокировки. До конца блокировки осталось: {time_remain.TotalSeconds.ToString().Split(',')[0]} секунд",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Допуск до авторизации. Если число попыток превысит три, то произойдет инициализация блокировки
+        /// </summary>
+        private void AuthCourse()
+        {
+            if (countAttempts > 2)
+            {
+                var time_block = DateTime.Now;
+                time_block = time_block.AddMinutes(Properties.Settings.Default.Block_Minuts);
+                Properties.Settings.Default.Remember_BlockTime = time_block;
+                Properties.Settings.Default.Save();
+                countAttempts = 0;
+
+                MessageBox.Show($"Вы исчерпали допустимое количество попыток при неверности введенного пароля! Повторное введение пароля возможно только через {Properties.Settings.Default.Block_Minuts} минут", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                var search_user = App.Connection.User.Where(x=> x.Login == LoginBox.Text).FirstOrDefault();
+                if (search_user != null)
+                {
+                    if (search_user.Password == PasswordBox.Password)
+                    {
+                        if (isRememberMe)
+                        {
+                            Properties.Settings.Default.Remember_Login = search_user.Login;
+                        }
+                        //Переход на другую страницу       
+                        MessageBox.Show("ПОЗДРАВЛЕНИЯ НАШИ ТЕБЕ", "ПОЗДРАВЛЕНИЯ НАШИ ТЕБЕ", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                    else
+                    {
+                        countAttempts++;
+                        MessageBox.Show($"Неправильный пароль! Осталось попыток: {3 - countAttempts}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось найти аккаунт с заданным логином!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void RememberCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            isRememberMe = true;
+        }
+
+        private void RememberCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            isRememberMe = false;
+        }
+
+        private void CreateUserBut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RegistrationPage());
         }
     }
 }
