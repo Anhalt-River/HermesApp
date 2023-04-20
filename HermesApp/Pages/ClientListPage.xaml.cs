@@ -24,5 +24,10 @@ namespace HermesApp.Pages
         {
             InitializeComponent();
         }
+
+        private void ReturnPageBut_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

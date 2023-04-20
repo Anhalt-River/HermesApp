@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HermesApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="850"
       Title="RegistrationPage">
 
     <Grid>
@@ -20,11 +20,11 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Style="{StaticResource PageTitle_PanelStyle}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <StackPanel Style="{StaticResource PageTitle_Panel}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
 
         <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <TextBlock Style="{StaticResource PageTitle_BlockStyle}" Text="Регистрация"/>
+            <TextBlock Style="{StaticResource PageTitle_Block}" Text="Регистрация"/>
         </StackPanel>
 
         <Image Source="/Materials/VHS.png" Grid.Column="0" Grid.Row="0"/>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\202002\source\repos\HermesApp\HermesApp\obj\Debug\
+C:\Users\202002\source\repos\HermesApp\HermesApp\HermesApp\obj\Debug\
 HermesApp
 none
 false
 DEBUG;TRACE
-C:\Users\202002\source\repos\HermesApp\HermesApp\App.xaml
-3-819545130
+C:\Users\202002\source\repos\HermesApp\HermesApp\HermesApp\App.xaml
+4925450848
 2134995061
-19-2133690944
-18-2060902349
-MainWindow.xaml;Pages\AuthPage.xaml;Pages\RegistrationPage.xaml;
+21-1652692360
+182067054701
+MainWindow.xaml;Pages\AuthPage.xaml;Pages\ClientListPage.xaml;Pages\RegistrationPage.xaml;
 
-False
+True
 

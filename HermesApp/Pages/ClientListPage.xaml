@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HermesApp.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="850"
       Title="ClientListPage">
 
     <Grid>
@@ -21,49 +21,78 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Style="{StaticResource PageTitle_PanelStyle}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <StackPanel Style="{StaticResource PageTitle_Panel}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
 
         <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <TextBlock Style="{StaticResource PageTitle_BlockStyle}" Text="Список клиентов"/>
+            <TextBlock Style="{StaticResource PageTitle_Block}" Text="Список клиентов"/>
         </StackPanel>
 
         <Image Source="/Materials/VHS.png" Grid.Column="0" Grid.Row="0"/>
+        
+        <Button x:Name="ReturnPageBut" Grid.Column="2" Margin="10" Click="ReturnPageBut_Click">
+            <Image Source="/Materials/back_icon.png"/>
+        </Button>
 
         <!--Список клиентов-->
         <StackPanel Grid.Row="2" Grid.Column="1"
                     HorizontalAlignment="Center" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible">
-            <ListView d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Height="Auto" Width="500" HorizontalContentAlignment="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Id}"/>
+                        <Border BorderThickness="5">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal" Style="{StaticResource ClientListPage_ListView_Panel}">
+                                    <UniformGrid Columns="3">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Id: " Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                            <TextBlock Text="{Binding Id}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                        </StackPanel>
+                                    </UniformGrid>
+
+
+                                    <StackPanel Orientation="Horizontal" Style="{StaticResource ClientListPage_BlocksPanel}">
+                                        <TextBlock Text="Пол: " Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                        <TextBlock Text="{Binding Gender}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+
+                                <StackPanel Orientation="Horizontal" Style="{StaticResource ClientListPage_ListView_Panel}">
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Style="{StaticResource ClientListPage_BlocksPanel}">
+                                        <TextBlock Text="{Binding FName}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Style="{StaticResource ClientListPage_BlocksPanel}">
+                                        <TextBlock Text="{Binding LName}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Style="{StaticResource ClientListPage_BlocksPanel}">
+                                        <TextBlock Text="{Binding Patronymic}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Style="{StaticResource ClientListPage_BlocksPanel}">
+                                        <TextBlock Text="{Binding Phone}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Style="{StaticResource ClientListPage_BlocksPanel}">
+                                        <TextBlock Text="{Binding Email}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+
+                                <StackPanel Orientation="Vertical" Style="{StaticResource ClientListPage_ListView_Panel}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Дата рождения: " Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                        <TextBlock Text="{Binding Birthday}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Дата добавления: " Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                        <TextBlock Text="{Binding DateAdded}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Последнее посещение: " Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                        <TextBlock Text="{Binding DateLastVisit}" Style="{StaticResource ClientListPage_ListView_Block}"/>
+                                    </StackPanel>
+                                </StackPanel>
                             </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Gender}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding FName}"/>
-                                <TextBlock Text="{Binding LName}"/>
-                                <TextBlock Text="{Binding Patronymic}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Birthday}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Phone}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Email}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding DateAdded}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding DateLastVisit}"/>
-                            </StackPanel>
-                        </StackPanel>
+                        </Border>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
