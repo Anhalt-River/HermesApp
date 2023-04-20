@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\202002\source\repos\HermesApp\HermesApp\AdoApp\AdoModel.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\202002\source\repos\HermesApp\HermesApp\HermesApp\Data\HermesModel.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

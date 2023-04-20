@@ -47,8 +47,8 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="#FFE0DD46"/>
             <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
 
         <Style TargetType="Image">
@@ -69,13 +69,60 @@
             <Setter Property="BorderBrush" Value="#FFF9E3C6"></Setter>
         </Style>
 
+        <Style TargetType="RadioButton">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#FFE0DD46"></Setter>
+            <Setter Property="Foreground" Value="#FFE0DD46"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="Margin" Value="10, 0, 10, 0"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#FFE0DD46"></Setter>
+        </Style>
+        
         <!---->
         <!---->
         <!---->
         <!--Стили по ключу-->
         <!---->
+        
+            <!--Неопределенные стили-->
+        <Style x:Key="WithoutMargin_But" TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#FFE0DD46"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
 
-            <!--Стили для авторизации-->
+        <Style x:Key="CentralAlign_TextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style x:Key="CentralAlign_Little_TextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style x:Key="LittleButton" TargetType="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#FFE0DD46"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <!--Стили для авторизации-->
         <Style x:Key="AuthPage_CheckBox_Text" TargetType="TextBlock">
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontFamily" Value="Arial"/>
@@ -111,6 +158,33 @@
             <!--Стили списка клиентов-->
         <Style x:Key="ClientListPage_ListView_Block" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+
+        <Style x:Key="ClientListPage_SearchBlock" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="10, 0, 10, 0"></Setter>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style x:Key="ClientListPage_SearchButton" TargetType="Button">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#FFE0DD46"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="0, 0, 10, 0"></Setter>
+        </Style>
+
+        <Style x:Key="ClientListPage_SearchBox" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="#FFE0DD46"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MinWidth" Value="200"></Setter>
+            <Setter Property="MaxWidth" Value="400"></Setter>
         </Style>
 
         <Style x:Key="ClientListPage_ListView_Panel" TargetType="StackPanel">
@@ -121,6 +195,32 @@
         <Style x:Key="ClientListPage_BlocksPanel" TargetType="StackPanel">
             <Setter Property="Background" Value="#FFFFF9F1"/>
             <Setter Property="Margin" Value="10, 5, 10, 5"/>
+        </Style>
+
+        <Style x:Key="ClientListPage_ListManagePanel" TargetType="StackPanel">
+            <Setter Property="Margin" Value="1"/>
+        </Style>
+
+        <Style x:Key="ClientListPage_SortTextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <Style x:Key="ClientListPage_SortRadioBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        
+        <!--Стили компонентов классов-->
+        <Style x:Key="Component_TextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="0"/>
         </Style>
     </Application.Resources>
 </Application>

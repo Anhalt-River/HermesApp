@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,15 @@ namespace HermesApp.Pages
         public AuthPage()
         {
             InitializeComponent();
+            FillRememberLogin();
+        }
+
+        private void FillRememberLogin()
+        {
+            if (Properties.Settings.Default.Remember_Login != "")
+            {
+                LoginBox.Text = Properties.Settings.Default.Remember_Login;
+            }
         }
 
         private void AuthBut_Click(object sender, RoutedEventArgs e)
@@ -69,27 +79,36 @@ namespace HermesApp.Pages
             }
             else
             {
-                var search_user = App.Connection.User.Where(x=> x.Login == LoginBox.Text).FirstOrDefault();
-                if (search_user != null)
+                try
                 {
-                    if (search_user.Password == PasswordBox.Password)
+                    var search_user = App.Connection.User.Where(x => x.Login == LoginBox.Text).FirstOrDefault();
+
+                    if (search_user != null)
                     {
-                        if (isRememberMe)
+                        if (search_user.Password == PasswordBox.Password)
                         {
-                            Properties.Settings.Default.Remember_Login = search_user.Login;
+                            if (isRememberMe)
+                            {
+                                Properties.Settings.Default.Remember_Login = search_user.Login;
+                            }
+                            //Переход на другую страницу       
+                            MessageBox.Show("Авторизация прошла успешно", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                            NavigationService.Navigate(new ClientListPage());
                         }
-                        //Переход на другую страницу       
-                        MessageBox.Show("ПОЗДРАВЛЕНИЯ НАШИ ТЕБЕ", "ПОЗДРАВЛЕНИЯ НАШИ ТЕБЕ", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        else
+                        {
+                            countAttempts++;
+                            MessageBox.Show($"Неправильный пароль! Осталось попыток: {3 - countAttempts}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                     else
                     {
-                        countAttempts++;
-                        MessageBox.Show($"Неправильный пароль! Осталось попыток: {3 - countAttempts}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Не удалось найти аккаунт с заданным логином!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
-                else
+                catch (Exception e)
                 {
-                    MessageBox.Show("Не удалось найти аккаунт с заданным логином!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Debug.Write($"{e}");
                 }
             }
         }

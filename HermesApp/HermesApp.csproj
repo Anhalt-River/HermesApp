@@ -41,6 +41,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -64,44 +65,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdoApp\AdoModel.Context.cs">
+    <Compile Include="Components\ClientClass.cs" />
+    <Compile Include="Data\Client.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ClientTag.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\HermesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdoModel.Context.tt</DependentUpon>
+      <DependentUpon>HermesModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\AdoModel.cs">
+    <Compile Include="Data\HermesModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdoModel.tt</DependentUpon>
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\AdoModel.Designer.cs">
+    <Compile Include="Data\HermesModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AdoModel.edmx</DependentUpon>
+      <DependentUpon>HermesModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\Client.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
+    <Compile Include="Data\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\ClientTag.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
+    <Compile Include="Data\sp_helpdiagrams_Result.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
+    <Compile Include="Data\sysdiagrams.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\sp_helpdiagrams_Result.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
+    <Compile Include="Data\Tag.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\sysdiagrams.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
+    <Compile Include="Data\User.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdoApp\Tag.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdoApp\User.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdoApp\Visit.cs">
-      <DependentUpon>AdoModel.tt</DependentUpon>
+    <Compile Include="Data\Visit.cs">
+      <DependentUpon>HermesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\ClientListPage.xaml.cs">
       <DependentUpon>ClientListPage.xaml</DependentUpon>
@@ -156,12 +158,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="AdoApp\AdoModel.edmx">
+    <EntityDeploy Include="Data\HermesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AdoModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>HermesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="AdoApp\AdoModel.edmx.diagram">
-      <DependentUpon>AdoModel.edmx</DependentUpon>
+    <None Include="Data\HermesModel.edmx.diagram">
+      <DependentUpon>HermesModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -179,20 +181,22 @@
     <Resource Include="Materials\VHS.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdoApp\AdoModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AdoModel.Context.cs</LastGenOutput>
-      <DependentUpon>AdoModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="AdoApp\AdoModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AdoModel.edmx</DependentUpon>
-      <LastGenOutput>AdoModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Materials\back_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\HermesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HermesModel.edmx</DependentUpon>
+      <LastGenOutput>HermesModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\HermesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HermesModel.edmx</DependentUpon>
+      <LastGenOutput>HermesModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

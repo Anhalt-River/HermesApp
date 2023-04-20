@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("adoapp/adomodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("adoapp/adomodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/hermesmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/hermesmodel.tt")]
 
 

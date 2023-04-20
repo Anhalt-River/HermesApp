@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HermesApp.AdoApp
+namespace HermesApp.Data
 {
     using System;
     using System.Collections.Generic;

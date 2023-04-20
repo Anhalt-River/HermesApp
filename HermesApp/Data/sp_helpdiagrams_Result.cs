@@ -7,24 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HermesApp.AdoApp
+namespace HermesApp.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Tag
+    public partial class sp_helpdiagrams_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tag()
-        {
-            this.ClientTag = new HashSet<ClientTag>();
-        }
-    
-        public int Id { get; set; }
+        public string Database { get; set; }
         public string Name { get; set; }
-        public string Color { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ClientTag> ClientTag { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

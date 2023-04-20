@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using HermesApp.AdoApp;
+using HermesApp.Data;
 
 namespace HermesApp
 {

@@ -7,18 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HermesApp.AdoApp
+namespace HermesApp.Data
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ClientTag
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int Id { get; set; }
-        public int TagId { get; set; }
-        public int ClientId { get; set; }
-    
-        public virtual Client Client { get; set; }
-        public virtual Tag Tag { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -7,17 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HermesApp.AdoApp
+namespace HermesApp.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Visit
+    public partial class User
     {
         public int Id { get; set; }
-        public int ClientId { get; set; }
-        public System.DateTime Date { get; set; }
-    
-        public virtual Client Client { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
     }
 }
